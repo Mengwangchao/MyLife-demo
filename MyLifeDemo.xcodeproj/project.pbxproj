@@ -10,7 +10,7 @@
 		4E862C235102A379A13D8EBE /* Pods_MyLifeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E7ABE1447DFB613A81935A /* Pods_MyLifeDemo.framework */; };
 		BABF977E2BECADBA0030A962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF977D2BECADBA0030A962 /* AppDelegate.m */; };
 		BABF97812BECADBA0030A962 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF97802BECADBA0030A962 /* SceneDelegate.m */; };
-		BABF97842BECADBA0030A962 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF97832BECADBA0030A962 /* ViewController.m */; };
+		BABF97842BECADBA0030A962 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF97832BECADBA0030A962 /* MainViewController.m */; };
 		BABF97872BECADBA0030A962 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BABF97862BECADBA0030A962 /* Base */; };
 		BABF97892BECADBC0030A962 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BABF97882BECADBC0030A962 /* Assets.xcassets */; };
 		BABF978C2BECADBC0030A962 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BABF978B2BECADBC0030A962 /* Base */; };
@@ -68,8 +68,8 @@
 		BABF977D2BECADBA0030A962 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BABF977F2BECADBA0030A962 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		BABF97802BECADBA0030A962 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		BABF97822BECADBA0030A962 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BABF97832BECADBA0030A962 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BABF97822BECADBA0030A962 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		BABF97832BECADBA0030A962 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		BABF97862BECADBA0030A962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BABF97882BECADBC0030A962 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BABF978B2BECADBC0030A962 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 				BABF977D2BECADBA0030A962 /* AppDelegate.m */,
 				BABF977F2BECADBA0030A962 /* SceneDelegate.h */,
 				BABF97802BECADBA0030A962 /* SceneDelegate.m */,
-				BABF97822BECADBA0030A962 /* ViewController.h */,
-				BABF97832BECADBA0030A962 /* ViewController.m */,
+				BABF97822BECADBA0030A962 /* MainViewController.h */,
+				BABF97832BECADBA0030A962 /* MainViewController.m */,
 				BABF97852BECADBA0030A962 /* Main.storyboard */,
 				BABF97882BECADBC0030A962 /* Assets.xcassets */,
 				BABF978A2BECADBC0030A962 /* LaunchScreen.storyboard */,
@@ -400,7 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABF97842BECADBA0030A962 /* ViewController.m in Sources */,
+				BABF97842BECADBA0030A962 /* MainViewController.m in Sources */,
 				BABF977E2BECADBA0030A962 /* AppDelegate.m in Sources */,
 				BABF978F2BECADBC0030A962 /* main.m in Sources */,
 				BABF97812BECADBA0030A962 /* SceneDelegate.m in Sources */,
@@ -592,6 +592,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,6 +622,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
