@@ -10,7 +10,8 @@
 @interface MainViewController ()
 <
 MLMoneyChangeListener,
-MLTimeChangeListener
+MLTimeChangeListener,
+MLGameOverListener
 >
 @property (nonatomic, strong) UILabel* name;
 @property (nonatomic, strong) UILabel* salary;
@@ -18,6 +19,7 @@ MLTimeChangeListener
 @property (nonatomic, strong) UILabel* time;
 @property (nonatomic, strong) MLContext* mlContext;
 @property (nonatomic, strong) UIButton * gambleButton;
+@property (nonatomic, strong) UIView* gameOverView;
 @end
 
 @implementation MainViewController
@@ -83,12 +85,18 @@ MLTimeChangeListener
     [self.view addSubview:sleep];
     
     [self addAllListeners];
+    
+    self.gameOverView = [[UIView alloc] initWithFrame:CGRectMake(100, 200, SCREEN_WIDTH - 200, SCREEN_HEIGHT - 400)];
+    self.gameOverView.backgroundColor = [UIColor whiteColor];
+    self.gameOverView.hidden = YES;
+    [self.view addSubview:self.gameOverView];
     // Do any additional setup after loading the view.
 }
 
 -(void)addAllListeners{
     [self.mlContext.controller addMoneyChangeListener:self];
     [self.mlContext.controller addTimeChangeListener:self];
+    [self.mlContext.controller addGameOverListener:self];
 }
 -(void)personView:(CGRect) frame{
     UIView *persionView = [[UIView alloc]initWithFrame:frame];
@@ -118,9 +126,40 @@ MLTimeChangeListener
     self.saving.textColor = [UIColor blackColor];
     self.saving.text = [NSString stringWithFormat:@"存款：%lld 元",self.mlContext.controller.getSavingMoney];
     [persionView addSubview:self.saving];
+    
+    
 }
 
-# pragma 按钮点击事件
+-(void)gameOver:(NSString *) gameOverStr{
+    self.gameOverView.hidden = NO;
+    UILabel* gameOverTitle = [[UILabel alloc] initWithFrame:CGRectMake(self.gameOverView.frame.size.width /2 - 40, 10, 80, 30)];
+    gameOverTitle.backgroundColor = [UIColor whiteColor];
+    gameOverTitle.text = @"游戏结束";
+    gameOverTitle.textColor = [UIColor redColor];
+    [self.gameOverView addSubview:gameOverTitle];
+
+    UITextView* gameOver = [[UITextView alloc] initWithFrame:CGRectMake(10, 50, self.gameOverView.frame.size.width - 20, 100)];
+    gameOver.backgroundColor = [UIColor whiteColor];
+    gameOver.font = [UIFont systemFontOfSize:20];
+    gameOver.textContainer.maximumNumberOfLines = 0;
+    gameOver.textContainer.widthTracksTextView = true;
+    gameOver.contentSize = CGSizeMake(gameOver.frame.size.width, gameOver.frame.size.height);
+    gameOver.text = [NSString stringWithFormat:@"%@",gameOverStr];
+    gameOver.textColor = [UIColor redColor];
+    gameOver.userInteractionEnabled = false;
+    gameOver.editable = false;
+    
+    [self.gameOverView addSubview:gameOver];
+    
+    UIButton* gameOverOkButton = [[UIButton alloc] initWithFrame:CGRectMake(self.gameOverView.frame.size.width/2 - 30, self.gameOverView.frame.size.height - 100, 60, 60)];
+    gameOverOkButton.backgroundColor = COLOR_RGB(59, 135, 247, 1);
+    [gameOverOkButton setTitle:@"确认" forState:UIControlStateNormal];
+    [gameOverOkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [gameOverOkButton addTarget:self action:@selector(gameOverOkButtonClick:) forControlEvents:UIControlEventTouchDown];
+    [self.gameOverView addSubview:gameOverOkButton];
+    
+}
+# pragma mark 按钮点击事件
 -(void)storeClick:(UIButton *) sender{
     
 }
@@ -142,7 +181,10 @@ MLTimeChangeListener
     [self.mlContext.controller work];
 }
 
-# pragma 监听函数
+-(void)gameOverOkButtonClick:(UIButton *) sender{
+    self.gameOverView.hidden = YES;
+}
+# pragma mark 监听函数
 - (void)onMoneyChange:(NSString *)name money:(int64_t)money{
     self.saving.text = [NSString stringWithFormat:@"存款：%lld 元",money];
 }
@@ -151,5 +193,15 @@ MLTimeChangeListener
     self.time.text = [NSString stringWithFormat:@"当前时间：%@",timeString];
 }
 
+- (void)onGameOverFailedWithType:(MLGameFailedType)type{
+    switch (type) {
+        case NO_SLEEP_TOO_LONG:
+            [self gameOver:@"太长时间未睡觉，过劳死"];
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
 
