@@ -7,12 +7,17 @@
 
 #import "GamblingViewController.h"
 #import "SelectedResultTableView.h"
-@interface GamblingViewController ()
+#import <MyLife/MLMoneyChangeListener.h>
+@interface GamblingViewController ()<
+MLMoneyChangeListener
+>
 
 @property (nonatomic, strong) MLContext* mlContext;
 @property (nonatomic, strong) NSArray* roomArray;
 @property (nonatomic, strong) NSMutableArray<UIButton *>* selectedButtonArray;
 @property (nonatomic, strong) SelectedResultTableView *resultTableView;
+@property (nonatomic, assign) int64_t saving;
+
 @end
 
 @implementation GamblingViewController
@@ -21,8 +26,10 @@
     self = [super init];
     if (self) {
         self.mlContext = context;
+        self.saving = [self.mlContext.controller getSavingMoney];
         self.roomArray = roomArray;
         self.selectedButtonArray = [NSMutableArray array];
+        [self.mlContext.controller addMoneyChangeListener:self];
     }
     return self;
 }
@@ -61,6 +68,10 @@
 }
 
 -(void)numButtonClick:(UIButton * )sender{
+    if (self.saving <= 0) {
+        [self toast:@"你没钱了，买不了"];
+        return;
+    }
     for (int i = 0; i< [self.mlContext.controller getSelectedNumArray].count; i++) {
         if ([self.mlContext.controller getSelectedNumArray][i].selectedNum == sender.tag) {
             
@@ -78,19 +89,13 @@
 
 -(void)submitClick :(UIButton * )sender{
     [self.mlContext.controller selectedNumMin:0 selectedMax:10 callback:^(BOOL isHit, int64_t result , MLSelectedNumModel * _Nonnull selectedModel) {
-        UILabel* resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-        resultLabel.backgroundColor = [UIColor blueColor];
-        resultLabel.textColor = [UIColor redColor];
-        [self.view addSubview:resultLabel];
         if (isHit) {
-            resultLabel.text = [NSString stringWithFormat:@"中了 : %d",selectedModel.selectedNum];
+            [self toast:[NSString stringWithFormat:@"中了 : %d",selectedModel.selectedNum]];
         }else{
-            resultLabel.text = [NSString stringWithFormat:@"没中 : %d",selectedModel.selectedNum];
+            [self toast:[NSString stringWithFormat:@"没中 : %d",selectedModel.selectedNum]];
         }
         [self.resultTableView addSelectedArray:[self.mlContext.controller getSelectedNumArray]  hitModel:selectedModel nameArray:self.roomArray result:result];
-        [NSTimer scheduledTimerWithTimeInterval:10 repeats:NO block:^(NSTimer * _Nonnull timer) {
-                [resultLabel removeFromSuperview];
-        }];
+        
     }];
     for (UIButton * seletedButton in self.selectedButtonArray) {
         seletedButton.backgroundColor = [UIColor grayColor];
@@ -99,6 +104,20 @@
     
 }
 
+-(void)toast:(NSString *)text{
+    UILabel* resultLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 - 100, SCREEN_HEIGHT/2 - 100, 200, 100)];
+    resultLabel.backgroundColor = [UIColor whiteColor];
+    resultLabel.textColor = [UIColor redColor];
+    [self.view addSubview:resultLabel];
+    resultLabel.text = text;
+    [NSTimer scheduledTimerWithTimeInterval:10 repeats:NO block:^(NSTimer * _Nonnull timer) {
+            [resultLabel removeFromSuperview];
+    }];
+}
+# pragma mark 监听
+- (void)onMoneyChange:(NSString *)name money:(int64_t)money{
+    self.saving = money;
+}
 
 /*
 #pragma mark - Navigation

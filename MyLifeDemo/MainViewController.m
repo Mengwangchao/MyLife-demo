@@ -23,11 +23,29 @@ MLGameOverListener
 @end
 
 @implementation MainViewController
-
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    NSLog(@"viewDidDisappear");
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
+-(void)dealloc{
+    NSLog(@"dealloc");
+}
+-(void)createMLContext{
+    
+    self.mlContext = [[MLContext alloc]initWithName:@"角色名11" salary:1000 savingMoney:1000];
+    [self.mlContext.controller save];
+    [self addAllListeners];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.mlContext = [[MLContext alloc]initWithName:@"角色名11" salary:1000 savingMoney:1000];
     
+    
+    self.mlContext = [[MLContext alloc]initWithFile];
+    [self addAllListeners];
     [self personView:CGRectMake(10, 80, SCREEN_WIDTH-20, 140)];
     
     UIButton* store = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 -100, 260, 200, 20)];
@@ -84,8 +102,20 @@ MLGameOverListener
     [sleep addTarget:self action:@selector(sleepClick:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:sleep];
     
-    [self addAllListeners];
     
+    UIButton* again = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 -100, 600, 200, 20)];
+    again.backgroundColor = BUTTON_BACKGROUNDCOLOR;
+    [again setTitle:@"重开" forState:UIControlStateNormal];
+    [again setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [again addTarget:self action:@selector(againClick:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:again];
+    
+    UIButton* saveButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2 -100, 640, 200, 20)];
+    saveButton.backgroundColor = BUTTON_BACKGROUNDCOLOR;
+    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    [saveButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [saveButton addTarget:self action:@selector(saveButtonClick:) forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:saveButton];
     self.gameOverView = [[UIView alloc] initWithFrame:CGRectMake(100, 200, SCREEN_WIDTH - 200, SCREEN_HEIGHT - 400)];
     self.gameOverView.backgroundColor = [UIColor whiteColor];
     self.gameOverView.hidden = YES;
@@ -107,6 +137,7 @@ MLGameOverListener
     self.time.backgroundColor = [UIColor whiteColor];
     self.time.textColor = [UIColor blackColor];
     self.time.text = [NSString stringWithFormat:@"当前时间：%@",self.mlContext.controller.getTimeString];
+    
     [persionView addSubview:self.time];
     
     self.name = [[UILabel alloc] initWithFrame:CGRectMake(0, 40, frame.size.width, 20)];
@@ -173,11 +204,16 @@ MLGameOverListener
     GamblingRoomTableViewController * gambling = [[GamblingRoomTableViewController alloc]initWithContext:self.mlContext];
     [self.navigationController pushViewController:gambling animated:YES];
 }
+-(void)saveButtonClick:(UIButton *)sender{
+    [self.mlContext.controller save];
+}
 -(void)sleepClick:(UIButton *) sender{
     
     [self.mlContext.controller sleep];
 }
-
+-(void)againClick:(UIButton *)sender{
+    [self createMLContext];
+}
 -(void)workClick:(UIButton *) sender{
     [self.mlContext.controller work];
 }

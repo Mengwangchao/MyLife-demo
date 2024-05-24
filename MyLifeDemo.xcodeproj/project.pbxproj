@@ -160,6 +160,13 @@
 			path = gambling;
 			sourceTree = "<group>";
 		};
+		BAA717F82C003AC600DFC876 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		BABF97702BECADBA0030A962 = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +192,7 @@
 		BABF977B2BECADBA0030A962 /* MyLifeDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BAA717F82C003AC600DFC876 /* model */,
 				BA3F14A12BFDEF8B000BDA6F /* gambling */,
 				BABF977C2BECADBA0030A962 /* AppDelegate.h */,
 				BABF977D2BECADBA0030A962 /* AppDelegate.m */,
@@ -624,7 +632,10 @@
 				DEVELOPMENT_TEAM = G69WKMC5FC;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyLifeDemo/MLPrefiixHeader.h";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MyLifeDemo/gambling\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/MyLifeDemo/gambling\"",
+					"\"$(SRCROOT)/MyLifeDemo/model\"",
+				);
 				INFOPLIST_FILE = MyLifeDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -655,7 +666,10 @@
 				DEVELOPMENT_TEAM = G69WKMC5FC;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyLifeDemo/MLPrefiixHeader.h";
 				GENERATE_INFOPLIST_FILE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MyLifeDemo/gambling\"";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/MyLifeDemo/gambling\"",
+					"\"$(SRCROOT)/MyLifeDemo/model\"",
+				);
 				INFOPLIST_FILE = MyLifeDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

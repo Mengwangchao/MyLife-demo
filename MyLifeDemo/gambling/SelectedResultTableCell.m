@@ -28,9 +28,9 @@
         title.textColor = [UIColor blackColor];
         [self.contentView addSubview:title];
         if (hit) {
-            title.text = [NSString stringWithFormat:@"%@ 中了 , 赚了： %lld",nameArray[hitModel.selectedNum + 1], result];
+            title.text = [NSString stringWithFormat:@"中奖号码 ：%@ , 赚了： %lld",nameArray[hitModel.selectedNum + 1], result];
         }else{
-            title.text = [NSString stringWithFormat:@"%@ 中了 , 亏了： %lld",nameArray[hitModel.selectedNum + 1], result];
+            title.text = [NSString stringWithFormat:@"中奖号码 ：%@ , 亏了： %lld",nameArray[hitModel.selectedNum + 1], result];
         }
     }
     return self;
