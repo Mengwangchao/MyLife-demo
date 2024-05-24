@@ -6,7 +6,7 @@
 //
 
 #import "MainViewController.h"
-
+#import "GamblingRoomTableViewController.h"
 @interface MainViewController ()
 <
 MLMoneyChangeListener,
@@ -170,7 +170,8 @@ MLGameOverListener
     
 }
 -(void)gambleButtonClick:(UIButton *) sender{
-    
+    GamblingRoomTableViewController * gambling = [[GamblingRoomTableViewController alloc]initWithContext:self.mlContext];
+    [self.navigationController pushViewController:gambling animated:YES];
 }
 -(void)sleepClick:(UIButton *) sender{
     

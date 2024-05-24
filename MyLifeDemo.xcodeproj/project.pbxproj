@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4E862C235102A379A13D8EBE /* Pods_MyLifeDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E7ABE1447DFB613A81935A /* Pods_MyLifeDemo.framework */; };
+		BA3F148C2BFDC41E000BDA6F /* GamblingRoomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F148B2BFDC41E000BDA6F /* GamblingRoomTableViewController.m */; };
+		BA3F148F2BFDC438000BDA6F /* GamblingRoomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F148E2BFDC438000BDA6F /* GamblingRoomTableViewCell.m */; };
+		BA3F14992BFDD8EA000BDA6F /* GamblingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F14982BFDD8EA000BDA6F /* GamblingViewController.m */; };
+		BA3F14A02BFDEF80000BDA6F /* SelectedResultTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F149F2BFDEF80000BDA6F /* SelectedResultTableView.m */; };
+		BA3F14A42BFDF03E000BDA6F /* SelectedResultTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3F14A32BFDF03E000BDA6F /* SelectedResultTableCell.m */; };
 		BABF977E2BECADBA0030A962 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF977D2BECADBA0030A962 /* AppDelegate.m */; };
 		BABF97812BECADBA0030A962 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF97802BECADBA0030A962 /* SceneDelegate.m */; };
 		BABF97842BECADBA0030A962 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF97832BECADBA0030A962 /* MainViewController.m */; };
@@ -63,6 +68,16 @@
 		4F7056EE2A49D85BBC2AB297 /* Pods_MyLifeDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyLifeDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66587CD5C55C1D5CDA6FF72B /* Pods-MyLifeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLifeDemo.release.xcconfig"; path = "Target Support Files/Pods-MyLifeDemo/Pods-MyLifeDemo.release.xcconfig"; sourceTree = "<group>"; };
 		A1595FB335DFFF7DE949A83A /* Pods-MyLifeDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyLifeDemoTests.release.xcconfig"; path = "Target Support Files/Pods-MyLifeDemoTests/Pods-MyLifeDemoTests.release.xcconfig"; sourceTree = "<group>"; };
+		BA3F148A2BFDC41E000BDA6F /* GamblingRoomTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamblingRoomTableViewController.h; sourceTree = "<group>"; };
+		BA3F148B2BFDC41E000BDA6F /* GamblingRoomTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamblingRoomTableViewController.m; sourceTree = "<group>"; };
+		BA3F148D2BFDC438000BDA6F /* GamblingRoomTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamblingRoomTableViewCell.h; sourceTree = "<group>"; };
+		BA3F148E2BFDC438000BDA6F /* GamblingRoomTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamblingRoomTableViewCell.m; sourceTree = "<group>"; };
+		BA3F14972BFDD8EA000BDA6F /* GamblingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamblingViewController.h; sourceTree = "<group>"; };
+		BA3F14982BFDD8EA000BDA6F /* GamblingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamblingViewController.m; sourceTree = "<group>"; };
+		BA3F149E2BFDEF80000BDA6F /* SelectedResultTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedResultTableView.h; sourceTree = "<group>"; };
+		BA3F149F2BFDEF80000BDA6F /* SelectedResultTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedResultTableView.m; sourceTree = "<group>"; };
+		BA3F14A22BFDF03E000BDA6F /* SelectedResultTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedResultTableCell.h; sourceTree = "<group>"; };
+		BA3F14A32BFDF03E000BDA6F /* SelectedResultTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedResultTableCell.m; sourceTree = "<group>"; };
 		BABF97792BECADBA0030A962 /* MyLifeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLifeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABF977C2BECADBA0030A962 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BABF977D2BECADBA0030A962 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +143,23 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BA3F14A12BFDEF8B000BDA6F /* gambling */ = {
+			isa = PBXGroup;
+			children = (
+				BA3F148A2BFDC41E000BDA6F /* GamblingRoomTableViewController.h */,
+				BA3F148B2BFDC41E000BDA6F /* GamblingRoomTableViewController.m */,
+				BA3F148D2BFDC438000BDA6F /* GamblingRoomTableViewCell.h */,
+				BA3F148E2BFDC438000BDA6F /* GamblingRoomTableViewCell.m */,
+				BA3F14972BFDD8EA000BDA6F /* GamblingViewController.h */,
+				BA3F14982BFDD8EA000BDA6F /* GamblingViewController.m */,
+				BA3F149E2BFDEF80000BDA6F /* SelectedResultTableView.h */,
+				BA3F149F2BFDEF80000BDA6F /* SelectedResultTableView.m */,
+				BA3F14A22BFDF03E000BDA6F /* SelectedResultTableCell.h */,
+				BA3F14A32BFDF03E000BDA6F /* SelectedResultTableCell.m */,
+			);
+			path = gambling;
+			sourceTree = "<group>";
+		};
 		BABF97702BECADBA0030A962 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +185,7 @@
 		BABF977B2BECADBA0030A962 /* MyLifeDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BA3F14A12BFDEF8B000BDA6F /* gambling */,
 				BABF977C2BECADBA0030A962 /* AppDelegate.h */,
 				BABF977D2BECADBA0030A962 /* AppDelegate.m */,
 				BABF977F2BECADBA0030A962 /* SceneDelegate.h */,
@@ -403,7 +436,12 @@
 				BABF97842BECADBA0030A962 /* MainViewController.m in Sources */,
 				BABF977E2BECADBA0030A962 /* AppDelegate.m in Sources */,
 				BABF978F2BECADBC0030A962 /* main.m in Sources */,
+				BA3F148F2BFDC438000BDA6F /* GamblingRoomTableViewCell.m in Sources */,
 				BABF97812BECADBA0030A962 /* SceneDelegate.m in Sources */,
+				BA3F14A42BFDF03E000BDA6F /* SelectedResultTableCell.m in Sources */,
+				BA3F14992BFDD8EA000BDA6F /* GamblingViewController.m in Sources */,
+				BA3F148C2BFDC41E000BDA6F /* GamblingRoomTableViewController.m in Sources */,
+				BA3F14A02BFDEF80000BDA6F /* SelectedResultTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,6 +624,7 @@
 				DEVELOPMENT_TEAM = G69WKMC5FC;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyLifeDemo/MLPrefiixHeader.h";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MyLifeDemo/gambling\"";
 				INFOPLIST_FILE = MyLifeDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -616,6 +655,7 @@
 				DEVELOPMENT_TEAM = G69WKMC5FC;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MyLifeDemo/MLPrefiixHeader.h";
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MyLifeDemo/gambling\"";
 				INFOPLIST_FILE = MyLifeDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
